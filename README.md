@@ -20,7 +20,7 @@ Everything great starts with an idea, working stuff coming soon
 In this setup there is still the following problem:
 - You set the physical speaker volume controler to low. Now you will be able to go from 25% to 100%. But perhaps 100% is NOT loud enough for you, or the other way around.
 - There actually is a solution for this. The idea is to crank up the physical controller to almost max. And then the application will have e.g. three modes:
-- 
+
 - First where the sound will be changed from 25% - 35%
 - 25% - 75%
 - 25% - 100%
