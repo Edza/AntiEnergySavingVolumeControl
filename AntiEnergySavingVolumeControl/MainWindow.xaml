@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AntiEnergySavingVolumeControl"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="104.561" Width="45" ResizeMode="NoResize" WindowStyle="None" Topmost="True">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Slider HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical" Height="70" Width="20" Minimum="0" Maximum="100" Background="Black" Margin="12,3,13,7"
+                
+                />
+        <StackPanel Visibility="Collapsed" Orientation="Horizontal" Grid.Row="1">
+            <RadioButton IsChecked="True"></RadioButton>
+            <RadioButton Background="DarkGray"></RadioButton>
+            <RadioButton Background="Gray"></RadioButton>
+        </StackPanel>
     </Grid>
 </Window>

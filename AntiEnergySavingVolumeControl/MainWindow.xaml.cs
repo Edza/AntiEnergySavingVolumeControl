@@ -24,5 +24,12 @@ namespace AntiEnergySavingVolumeControl
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //this.Hide();
+            this.Left = 80;
+            this.Top = 80;
+        }
     }
 }
