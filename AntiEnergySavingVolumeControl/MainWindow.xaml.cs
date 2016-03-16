@@ -20,6 +20,8 @@ namespace AntiEnergySavingVolumeControl
     /// </summary>
     public partial class MainWindow : Window
     {
+        static KeyboardHooks _hook = new KeyboardHooks();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +32,27 @@ namespace AntiEnergySavingVolumeControl
             //this.Hide();
             this.Left = 80;
             this.Top = 80;
+
+            _hook.HookedKeys.Add(System.Windows.Forms.Keys.VolumeDown);
+            _hook.HookedKeys.Add(System.Windows.Forms.Keys.VolumeUp);
+            _hook.KeyDown += Hook_KeyDown;
+            _hook.KeyUp += Hook_KeyUp;
+        }
+
+        private void Hook_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == System.Windows.Forms.Keys.VolumeDown)
+                this.Slider.Value--;
+            else
+                this.Slider.Value++;
+
+            e.Handled = true;
+        }
+
+
+        private void Hook_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
