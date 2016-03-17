@@ -147,6 +147,9 @@
                 Foreground="White" TextAlignment="Center"
                 Text="{Binding Value, ElementName=Slider, StringFormat=0, UpdateSourceTrigger=PropertyChanged}"
                 Margin="10,0,11,7" Width="20"/>
+            <Border x:Name="Muted" Visibility="Collapsed" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="18" Margin="9,5,0,0" VerticalAlignment="Top" Width="23" Background="Black">
+                <TextBlock Text="X" Foreground="White" HorizontalAlignment="Center"/>
+            </Border>
         </Grid>
         <StackPanel Visibility="Collapsed" Orientation="Horizontal" Grid.Row="1">
             <RadioButton IsChecked="True"/>

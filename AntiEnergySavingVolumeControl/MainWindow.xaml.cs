@@ -27,6 +27,28 @@ namespace AntiEnergySavingVolumeControl
         int _forcedMinHitCount = 0;
         bool _keyUp = true;
 
+        bool _isMute;
+        bool IsMute
+        {
+            get
+            {
+                return this._isMute;
+            }
+            set
+            {
+                this._isMute = value;
+                if(value == true)
+                {
+                    Muted.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    Muted.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+        int _mutedVolume;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,6 +63,15 @@ namespace AntiEnergySavingVolumeControl
 
             this._hook.HookedKeys.Add(System.Windows.Forms.Keys.VolumeDown);
             this._hook.HookedKeys.Add(System.Windows.Forms.Keys.VolumeUp);
+
+            // I got a calculator key on my keboard that maps to this
+            // only for me is this behaviour implemented ;)
+            // you are fine
+            if (Environment.UserName == "edza")
+                this._hook.HookedKeys.Add(System.Windows.Forms.Keys.LaunchApplication2);
+            else
+                this._hook.HookedKeys.Add(System.Windows.Forms.Keys.VolumeMute);
+
             this._hook.KeyDown += Hook_KeyDown;
             this._hook.KeyUp += Hook_KeyUp;
 
@@ -49,6 +80,15 @@ namespace AntiEnergySavingVolumeControl
 
         private async void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            if (this.Slider.Value == 0)
+            {
+                Muted.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Muted.Visibility = Visibility.Collapsed;
+            }
+
             if (this.Slider.Value < 22)
             {
                 this.Indicator.Fill = Brushes.Maroon;
@@ -99,7 +139,34 @@ namespace AntiEnergySavingVolumeControl
 
         private void Hook_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
+            // Special processing again for me personally ;) Everyone else is fine
+            if((Environment.UserName == "edza" && e.KeyCode == System.Windows.Forms.Keys.LaunchApplication2) ||
+                e.KeyCode == System.Windows.Forms.Keys.VolumeMute)
+            {
+                e.Handled = true;
+
+                if (this.IsMute)
+                {
+                    this.Slider.Value = this._mutedVolume;
+                    this.IsMute = false;
+                }
+                else
+                {
+                    this._mutedVolume = (int)this.Slider.Value;
+                    this.Slider.Value = 0;
+                    this.IsMute = true;
+                }
+                
+                return;
+            }
+
             this._keyUp = false;
+
+            if (this.IsMute)
+            {
+                this.Slider.Value = this._mutedVolume;
+                this.IsMute = false;
+            }
 
             if (e.KeyCode == System.Windows.Forms.Keys.VolumeDown)
             {
