@@ -9,7 +9,7 @@
         Title="MainWindow" Height="120" Width="45" ResizeMode="NoResize" WindowStyle="None" Topmost="True"
         Background="Black"
         BorderThickness="2"
-        BorderBrush="Gray">
+        BorderBrush="Gray" ShowInTaskbar="False" WindowState="Minimized" Opacity="0.9">
     <Window.Resources>
         <Style x:Key="MyFocusVisualStyte" >
             <Setter Property="Control.Template">
@@ -128,23 +128,30 @@
             <RowDefinition Height="90"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
+        <Rectangle 
+            x:Name="Indicator"
+            Fill="#FF155D78" HorizontalAlignment="Left" Height="21" Margin="8,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="25">
+            <Rectangle.Effect>
+                <DropShadowEffect/>
+            </Rectangle.Effect>
+        </Rectangle>
         <Slider HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical" Height="80"
                 Width="39"
                 x:Name="Slider"
                 Minimum="0" Maximum="100"    
-                Style="{StaticResource SliderStyle}" Grid.RowSpan="2" Margin="4,-2,-2,0"
+                Style="{StaticResource SliderStyle}" Grid.RowSpan="2" Margin="4,-2,-2,0" Value="22"
                 />
         <Grid Grid.Row="1">
             <TextBlock 
                 VerticalAlignment="Bottom" HorizontalAlignment="Center"
                 Foreground="White" TextAlignment="Center"
-                Text="{Binding ElementName=Slider,Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat=0}"
+                Text="{Binding Value, ElementName=Slider, StringFormat=0, UpdateSourceTrigger=PropertyChanged}"
                 Margin="10,0,11,7" Width="20"/>
         </Grid>
         <StackPanel Visibility="Collapsed" Orientation="Horizontal" Grid.Row="1">
-            <RadioButton IsChecked="True"></RadioButton>
-            <RadioButton Background="DarkGray"></RadioButton>
-            <RadioButton Background="Gray"></RadioButton>
+            <RadioButton IsChecked="True"/>
+            <RadioButton Background="DarkGray"/>
+            <RadioButton Background="Gray"/>
         </StackPanel>
     </Grid>
 </Window>
