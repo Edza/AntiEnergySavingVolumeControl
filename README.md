@@ -4,6 +4,10 @@
 3. Set up the .EXE file inside the folder to run everytime the computer starts
 4. Restart and your done! ;)
 
+### Screenshots
+![Volume Control 1](http://i.imgur.com/iig7URF.png)
+![Volume Control 2](http://i.imgur.com/kepesaV.png)
+
 # How do I setup that .EXE file runs every time I start my PC?
 1. Click "Search" and type in "Task Scheduler"
 2. Open it. Click on Task Scheduler Library
