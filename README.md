@@ -1,10 +1,10 @@
 # Install instructions
 1. Find the "Release" button in the middle of the screen (Use Ctrl + F if you cant find it LOL)
-2. Download the .EXE file
-3. Set up the .EXE file to run as everytime the computer starts
+2. Download the .ZIP file and unzip it in a good location (such as My Documents)
+3. Set up the .EXE file inside folder to run everytime the computer starts
 4. Restart and your done! ;)
 
-# How do I setup it runs every time I start my PC?
+# How do I setup that .EXE file runs every time I start my PC?
 1. Click "Search" and type in "Task Scheduler"
 2. Open it. Click on Task Scheduler Library
 3. Left click in the list "Create a new  task"
@@ -13,7 +13,7 @@
 6. Dropdown "Configure for" choose "Windows 10"
 7. Triggers tab, new trigger, first dropdown "At startup"
 8. Check delay task for "1 minute" (you need this)
-9. Go to Actions, new action, Chose to start a program, select the CustomVolumeControler.exe
+9. Go to Actions, new action, Chose to start a program, select the AntiEnergySavingVolumeControl.exe
 10. Go to Settings, uncheck "Stop the task if is running longer than 3 days"
 11. **Pat yourself on the back - you just learned something new about Windows!**
 
