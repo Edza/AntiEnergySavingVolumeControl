@@ -15,7 +15,8 @@
 8. Check delay task for "1 minute" (you need this)
 9. Go to Actions, new action, Chose to start a program, select the CustomVolumeControler.exe
 10. Go to Settings, uncheck "Stop the task if is running longer than 3 days"
-*11. Recheck everything and congratualte yourself - you have just learned something new about Windows!*
+
+**11. Recheck everything and congratualte yourself - you have just learned something new about Windows!**
 
 ## Whats the problem?
 My Creative T6300 speakers automatically shut down themselves if for more than 15 minutes the volume output from the PC is less than 25%. 
